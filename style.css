@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700;900&family=Roboto:wght@400;900&display=swap');
+
+:root {
+  --primary: #4b08ad;
+  --primary-light: #5708cd;
+  --secondary: #dc0537;
+  --white: #f4f4f4;
+  --black: #0b0b0b;
+}
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #0b0b0b;
+}
+
+.header-container {
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+  color: #000;
+  box-shadow: 1px 1px 1px 10px #000;
+}
+
+.header-container > .bg-video {
+  width: 100%;
+  height: 100%;
+}
+
+.header-container > .text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  padding: 0 2rem;
+  place-items: center;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
+  mix-blend-mode: multiply;
+  user-select: none;
+  text-shadow: 0 0 5px var(--secondary), 0 0 10px var(--primary),
+    0 0 20px var(--primary-light);
+}
+
+.text > span {
+    margin-top: -5rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -2rem;
+  background-color: #000;
+}
+
+.menu {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu li {
+  position: absolute;
+  left: 0;
+  list-style: none;
+  transition: 0.5s;
+  transition-delay: calc(0.1s * var(--i));
+  color: #fff;
+  transform-origin: 140px;
+  transform: rotate(0deg) translateX(110px);
+}
+
+.menu.active li {
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(0px);
+}
+
+.menu li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  color: var(--clr);
+  border: 2px solid var(--clr);
+  border-radius: 50%;
+  font-size: 1.5em;
+  transform: rotate(calc(360deg / -8 * var(--i)));
+  transition: 1s;
+}
+
+.menu li a:hover {
+  transition: 0s;
+  background: var(--clr);
+  color: #333;
+  box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr), 0 0 50px var(--clr);
+}
+
+.menu .toggle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #24363e;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10000;
+  font-size: 2em;
+  transition: transform 1.25s;
+}
+
+.menu.active .toggle {
+  transform: rotate(315deg);
+  background-color: #000;
+  color: #fff;
+}
+
+.menu.active .toggle::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 50%;
+  filter: blur(1rem);
+  animation: animate 40s linear infinite;
+}
