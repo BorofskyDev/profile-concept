@@ -85,7 +85,7 @@ body {
 }
 
 .menu.active li {
-  transform: rotate(calc(360deg / 8 * var(--i))) translateX(0px);
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(-20px);
 }
 
 .menu li a {
@@ -96,6 +96,7 @@ body {
   height: 60px;
   color: var(--clr);
   border: 2px solid var(--clr);
+  box-shadow: 0 0 10px 2px var(--white), 0 0 5px 5px var(--clr);
   border-radius: 50%;
   font-size: 1.5em;
   transform: rotate(calc(360deg / -8 * var(--i)));
